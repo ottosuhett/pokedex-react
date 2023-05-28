@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { createGlobalStyle } from "styled-components"
+import { AppRoutes } from './pages/routes.js';
+import { ThemeProvider } from "./components/context/themeContext.js";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ThemeProvider>
+        <GlobalStyle></GlobalStyle>
+        <AppRoutes />
+      </ThemeProvider>
     </div>
   );
 }
 
+const GlobalStyle = createGlobalStyle`
+  *{
+    list-style: none;
+    margin:0;
+    padding:0;
+    font-size:62.5%;
+    box-sizing: border-box;
+    list-style:none;
+    text-transform: capitalize;
+  }
+`
 export default App;
